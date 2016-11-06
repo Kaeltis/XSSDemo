@@ -3,7 +3,7 @@
 class Guestbook
 {
     private $db;
-    private $sanitize = false;
+    const SANITIZE = false;
 
     /**
      * Guestbook constructor.
@@ -94,7 +94,7 @@ class Guestbook
 
     public function sanitizeString($input)
     {
-        if ($this->sanitize) {
+        if (Guestbook::SANITIZE) {
             return htmlspecialchars($input);
         } else {
             return $input;
